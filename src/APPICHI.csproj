@@ -62,4 +62,14 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Views\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Controls\FlyoutHeader.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
