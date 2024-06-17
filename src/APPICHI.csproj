@@ -63,13 +63,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Controls\" />
 	  <Folder Include="Views\" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Controls\FlyoutHeader.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

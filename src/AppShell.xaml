@@ -4,17 +4,16 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:APPICHI"
-    xmlns:controls="clr-namespace:APPICHI.Controls"
     FlyoutHeaderBehavior="Fixed"
     Title="APPICHI">
-    
-   <!-- Intento de cabecera / investigar como hacer cabecera fija-->
-    <Shell.FlyoutHeader>
-        <controls:FlyoutHeader />
-    </Shell.FlyoutHeader>
-    <FlyoutItem Title="Cats">
-        <Tab>
+    <TabBar>
+        <Tab Title="Mobilidad"
+            Icon="viaje_en_tren.png">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
-    </FlyoutItem>
+        <Tab Title="Hogar"
+            Icon="corazon_de_chimenea_de_casa.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+    </TabBar>
 </Shell>
