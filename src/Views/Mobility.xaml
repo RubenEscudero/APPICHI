@@ -8,6 +8,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -23,6 +24,7 @@
                 Text="Botones de movilidad"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center" />
+            
         </Grid>
     </ScrollView>
 </ContentPage>

@@ -6,8 +6,22 @@ using System.Threading.Tasks;
 
 namespace APPICHI.Clients
 {
-    static readonly String BaseAddress = "";
-    internal class ZgzMobilityClient
+    public static class ZgzMobilityClient
     {
+        static readonly string Url = "https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano";
+        static HttpClient client;
+
+        private static async Task<HttpClient> GetClient()
+        {
+            if (client != null)
+                return client;
+
+            client = new HttpClient();
+
+            return client;
+        }
+
+        //TODO
+        //public static async Task
     }
 }
