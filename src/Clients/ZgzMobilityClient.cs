@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Java.Util.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,12 @@ namespace APPICHI.Clients
             return client;
         }
 
-        //TODO
-        //public static async Task
+        public static async Task<string> GetTimeByMarqueeId(string id)
+        {
+            if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
+                return "";
+         
+                
+        }
     }
 }
