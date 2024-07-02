@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="APPICHI.Views.ZgzMobilityPage"
+             Title="ZgzMobilityPage">
+    <VerticalStackLayout>
+        <Label Text="Obtener tiempos de autobus por poste"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry x:Name="MarqueeId"
+               Placeholder="Introduce el número del poste"/>
+        <Button Text="Consultar tiempo"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="GetBusByMarqueeId"/>
+        <Label x:Name="Result"
+               Text="Sin consultar"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+    </VerticalStackLayout>
+</ContentPage>

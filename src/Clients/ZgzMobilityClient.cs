@@ -1,5 +1,4 @@
-﻿using Java.Util.Functions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +9,7 @@ namespace APPICHI.Clients
     public static class ZgzMobilityClient
     {
         static readonly string Url = "https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano";
-        static HttpClient client;
+        static HttpClient? client;
 
         private static async Task<HttpClient> GetClient()
         {
@@ -18,7 +17,7 @@ namespace APPICHI.Clients
                 return client;
 
             client = new HttpClient();
-
+            
             return client;
         }
 
@@ -27,7 +26,15 @@ namespace APPICHI.Clients
             if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
                 return "";
          
-                
+            var client = await GetClient();
+            var result = await client.GetAsync($"{Url}/poste-autobus/tuzsa-{id}?rf=html&srsname=wgs84");
+
+            if (true)
+            {
+                return "";
+            }
+
+            return "";
         }
     }
 }

@@ -6,4 +6,9 @@ public partial class Mobility : ContentPage
 	{
 		InitializeComponent();
 	}
+
+	async void GoToZgzMobilityPage(object sender, EventArgs args)
+	{
+		await Navigation.PushAsync(new ZgzMobilityPage());
+	}
 }

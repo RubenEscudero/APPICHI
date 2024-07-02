@@ -18,13 +18,11 @@
                 TextColor="White"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"/>
-            <Label Grid.Row="1"
-                BackgroundColor="DimGrey"
-                TextColor="White"
-                Text="Botones de movilidad"
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center" />
-            
+            <Button Grid.Row="1"    
+                Text="Tiempo de autobus por número de poste"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Clicked="GoToZgzMobilityPage"/>
         </Grid>
     </ScrollView>
 </ContentPage>
