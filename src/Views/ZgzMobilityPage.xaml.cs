@@ -18,7 +18,5 @@ public partial class ZgzMobilityPage : ContentPage
 		}
 
 		Result.Text = TimeResult;
-
-
 	}
 }

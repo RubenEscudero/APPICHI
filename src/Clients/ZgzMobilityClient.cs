@@ -27,14 +27,21 @@ namespace APPICHI.Clients
                 return "";
          
             var client = await GetClient();
-            var result = await client.GetAsync($"{Url}/poste-autobus/tuzsa-{id}?rf=html&srsname=wgs84");
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/geo+json"));
 
-            if (true)
+            try
+            {
+                String result = await client.GetStringAsync($"{Url}/poste-autobus/tuzsa-{id}?rf=html&srsname=wgs84");
+                if (String.IsNullOrEmpty(result))
+                {
+                    return "";
+                }
+                return result;
+            }
+            catch (HttpRequestException)
             {
                 return "";
             }
-
-            return "";
         }
     }
 }
