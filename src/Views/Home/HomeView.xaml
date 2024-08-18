@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="APPICHI.Views.Mobility"
-             Title="Mobility">
+             x:Class="APPICHI.Views.Home.HomeView"
+             Title="Home">
     <ScrollView>
         <Grid BackgroundColor="Black">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
-                <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -18,11 +17,12 @@
                 TextColor="White"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"/>
-            <Button Grid.Row="1"    
-                Text="Tiempo de autobus por número de poste"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Clicked="GoToZgzMobilityPage"/>
+            <Label Grid.Row="1"
+                BackgroundColor="DimGrey"
+                TextColor="White"
+                Text="Botones de hogar"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center" />
         </Grid>
     </ScrollView>
 </ContentPage>

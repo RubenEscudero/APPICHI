@@ -66,22 +66,43 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="AathifMahir.Maui.MauiIcons.Core" Version="3.0.0" />
+		<PackageReference Include="AathifMahir.Maui.MauiIcons.Cupertino" Version="3.0.0" />
+		<PackageReference Include="AathifMahir.Maui.MauiIcons.FontAwesome" Version="3.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.80" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\Home.xaml">
+	  <MauiXaml Update="Views\Finance\FinanceView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Mobility.xaml">
+	  <MauiXaml Update="Views\Home\HomeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ZgzMobilityPage.xaml">
+	  <MauiXaml Update="Views\Mobility\MobilityView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Mobility\ZgzTimeResultView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\Finance\FinanceView.xaml.cs">
+	    <DependentUpon>FinanceView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Home\HomeView.xaml.cs">
+	    <DependentUpon>HomeView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Mobility\MobilityView.xaml.cs">
+	    <DependentUpon>MobilityView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Mobility\ZgzTimeResultView.xaml.cs">
+	    <DependentUpon>ZgzTimeResultView.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>

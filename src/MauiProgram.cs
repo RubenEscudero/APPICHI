@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiIcons.Cupertino;
+using MauiIcons.FontAwesome;
+using Microsoft.Extensions.Logging;
 
 namespace APPICHI
 {
@@ -9,12 +11,14 @@ namespace APPICHI
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseFontAwesomeMauiIcons()
+                .UseCupertinoMauiIcons()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

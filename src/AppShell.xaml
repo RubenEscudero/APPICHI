@@ -4,18 +4,25 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:APPICHI"
-    xmlns:views="clr-namespace:APPICHI.Views"
+    xmlns:mobilityViews="clr-namespace:APPICHI.Views.Mobility"
+    xmlns:homeViews="clr-namespace:APPICHI.Views.Home"
+    xmlns:financeViews="clr-namespace:APPICHI.Views.Finance"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
     FlyoutHeaderBehavior="Fixed"
     Shell.NavBarIsVisible="False"
     Title="APPICHI">
     <TabBar>
         <Tab Title="Mobility"
-            Icon="viaje_en_tren.png">
-            <ShellContent ContentTemplate="{DataTemplate views:Mobility}" />
+            Icon="{mi:Cupertino Icon=CarFill}">
+            <ShellContent ContentTemplate="{DataTemplate mobilityViews:MobilityView}" />
         </Tab>
         <Tab Title="Home"
-            Icon="corazon_de_chimenea_de_casa.png">
-            <ShellContent ContentTemplate="{DataTemplate views:Home}" />
+            Icon="{mi:Cupertino Icon=House}">
+            <ShellContent ContentTemplate="{DataTemplate homeViews:HomeView}" />
+        </Tab>
+        <Tab Title="Finance"
+            Icon="{mi:Cupertino Icon=Creditcard}">
+            <ShellContent ContentTemplate="{DataTemplate financeViews:FinanceView}"/>
         </Tab>
     </TabBar>
 </Shell>
