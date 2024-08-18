@@ -6,8 +6,9 @@ namespace APPICHI.Views.Mobility;
 
 public partial class ZgzTimeResultView : ContentPage
 {
-	public ZgzTimeResultView()
+	public ZgzTimeResultView(ZgzTimeResultModel model)
 	{
 		InitializeComponent();
+		BindingContext = model;
 	}
 }

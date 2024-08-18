@@ -34,7 +34,8 @@
                 Text=""
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Placeholder="Introduce el número de poste" />
+                TextColor="White"
+                Placeholder="Número de poste" />
             <Button Grid.Row="2"  
                 Grid.Column="1"
                 Text="Buscar"

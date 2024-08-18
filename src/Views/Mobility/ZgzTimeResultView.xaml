@@ -4,6 +4,6 @@
              x:Class="APPICHI.Views.Mobility.ZgzTimeResultView"
              Title="ZgzTimeResultView">
     <VerticalStackLayout>
-        <Entry Text="Introduce el número de poste"/>
+        <Label Text="{Binding type}"/>
     </VerticalStackLayout>
 </ContentPage>
