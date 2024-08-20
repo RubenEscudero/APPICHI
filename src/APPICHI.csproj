@@ -105,4 +105,8 @@
 	  </Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="ViewModels\Mobility\" />
+	</ItemGroup>
+
 </Project>

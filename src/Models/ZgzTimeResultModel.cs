@@ -9,13 +9,13 @@ namespace APPICHI.Models
     public class ZgzTimeResultModel
     {
         public string? type { get; set; }
-        public List<Feature>? Features { get; set; }
+        public List<Feature>? features { get; set; }
     }
 
     public class Feature
     {
         public string? type { get; set; }
-        public Properties? Properties { get; set; }
+        public Properties? properties { get; set; }
     }
 
     public class Properties
@@ -25,7 +25,7 @@ namespace APPICHI.Models
         public string? lastUpdated { get; set; }
         public string? link { get; set; }
         public string? icon { get; set; }
-        public List<Destino>? Destinos { get; set; }
+        public List<Destino>? destinos { get; set; }
         public string? gtfsId { get; set; }
     }
 
