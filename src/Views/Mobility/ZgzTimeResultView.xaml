@@ -8,9 +8,10 @@
         <CollectionView ItemsSource="{Binding features}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="20">
+                    <StackLayout Padding="40">
                         <Image Aspect="Center" Source="{mi:Cupertino Icon=Clock, IconSize=Medium}"/>
                         <Label Text="{Binding properties.title}"
+                               TextColor="White"
                                HorizontalTextAlignment="Center"
                                Padding="10"/>
                         <CollectionView ItemsSource="{Binding properties.destinos}">
@@ -30,29 +31,34 @@
                                         <Label Grid.Row="0"
                                                Grid.Column="0"
                                                Text="Línea:"
+                                               TextColor="White"
                                                HorizontalTextAlignment="End"/>
                                         <Label Grid.Row="0"
                                                Grid.Column="2"
                                                Text="{Binding linea}"
+                                               TextColor="White"
                                                HorizontalTextAlignment="Start"/>
                                         <Label Grid.Row="1"
                                                Grid.Column="0"
                                                Text="Destino:"
+                                               TextColor="White"
                                                HorizontalTextAlignment="End"/>
                                         <Label Grid.Row="1"
                                                Grid.Column="2"
                                                Text="{Binding destino}"
+                                               TextColor="White"
                                                HorizontalTextAlignment="Start"/>
                                         <Label Grid.Row="2"
                                                Grid.Column="0"
                                                Text="Tiempo:"
+                                               TextColor="White"
                                                HorizontalTextAlignment="End"/>
                                         <Label Grid.Row="2" Grid.Column="2">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="{Binding primero}"/>
+                                                    <Span Text="{Binding primero}" TextColor="White"/>
                                                     <Span Text=" "/>
-                                                    <Span Text="{Binding segundo}"/>
+                                                    <Span Text="{Binding segundo}" TextColor="White"/>
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
