@@ -1,22 +1,62 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="APPICHI.Views.Mobility.ZgzTimeResultView"
              Title="ZgzTimeResultView">
     <VerticalStackLayout BackgroundColor="Black">
         <CollectionView ItemsSource="{Binding features}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout>
+                    <StackLayout Padding="20">
+                        <Image Aspect="Center" Source="{mi:Cupertino Icon=Clock, IconSize=Medium}"/>
                         <Label Text="{Binding properties.title}"
-                               HorizontalTextAlignment="Center"/>
-                       
+                               HorizontalTextAlignment="Center"
+                               Padding="10"/>
                         <CollectionView ItemsSource="{Binding properties.destinos}">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <StackLayout>
-                                        <Label Text="{Binding linea}"/>
-                                    </StackLayout>
+                                    <Grid Padding="10">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="10"/>
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="0"
+                                               Text="Línea:"
+                                               HorizontalTextAlignment="End"/>
+                                        <Label Grid.Row="0"
+                                               Grid.Column="2"
+                                               Text="{Binding linea}"
+                                               HorizontalTextAlignment="Start"/>
+                                        <Label Grid.Row="1"
+                                               Grid.Column="0"
+                                               Text="Destino:"
+                                               HorizontalTextAlignment="End"/>
+                                        <Label Grid.Row="1"
+                                               Grid.Column="2"
+                                               Text="{Binding destino}"
+                                               HorizontalTextAlignment="Start"/>
+                                        <Label Grid.Row="2"
+                                               Grid.Column="0"
+                                               Text="Tiempo:"
+                                               HorizontalTextAlignment="End"/>
+                                        <Label Grid.Row="2" Grid.Column="2">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding primero}"/>
+                                                    <Span Text=" "/>
+                                                    <Span Text="{Binding segundo}"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                         </CollectionView>
