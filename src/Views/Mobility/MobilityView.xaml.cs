@@ -1,6 +1,7 @@
 using APPICHI.Clients;
 using APPICHI.Models;
 using System.Text.Json;
+using CommunityToolkit.Maui.Core.Platform;
 
 namespace APPICHI.Views.Mobility;
 
@@ -13,9 +14,10 @@ public partial class MobilityView : ContentPage
 
 	async void GoToZgzTimeResultView(object sender, EventArgs args)
 	{
-		if (String.IsNullOrEmpty(PostNumber.Text))
+        await PostNumber.HideKeyboardAsync();
+        if (String.IsNullOrEmpty(PostNumber.Text))
 		{
-			ErrorMessageAction();
+			await Application.Current.MainPage.DisplayAlert("Error", "Se ha producido un error, vuelve a intentarlo.", "OK");
 		}
 		else
 		{
@@ -23,7 +25,7 @@ public partial class MobilityView : ContentPage
 			String jsonZgzTimeResultModel = await ZgzMobilityClient.GetTimeByMarqueeId(PostNumber.Text);
 			if (String.IsNullOrEmpty(jsonZgzTimeResultModel))
 			{
-				ErrorMessageAction();
+                await Application.Current.MainPage.DisplayAlert("Error", "Se ha producido un error, vuelve a intentarlo.", "OK");
             }
 			else
 			{
@@ -33,12 +35,4 @@ public partial class MobilityView : ContentPage
         }
 		
 	}
-
-	//TODO
-	//Crear función general de control de errores
-	private void ErrorMessageAction()
-	{
-        ErrorMessage.Text = "Se ha producido un error, vuelve a intentarlo.";
-        ErrorMessage.BackgroundColor = Colors.DarkRed;
-    }
 }

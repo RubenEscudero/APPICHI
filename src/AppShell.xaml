@@ -12,16 +12,13 @@
     Shell.NavBarIsVisible="False"
     Title="APPICHI">
     <TabBar>
-        <Tab Title="Mobility"
-            Icon="{mi:Cupertino Icon=CarFill}">
+        <Tab Icon="{mi:Cupertino Icon=CarFill}">
             <ShellContent ContentTemplate="{DataTemplate mobilityViews:MobilityView}" />
         </Tab>
-        <Tab Title="Home"
-            Icon="{mi:Cupertino Icon=House}">
+        <Tab Icon="{mi:Cupertino Icon=House}">
             <ShellContent ContentTemplate="{DataTemplate homeViews:HomeView}" />
         </Tab>
-        <Tab Title="Finance"
-            Icon="{mi:Cupertino Icon=Creditcard}">
+        <Tab Icon="{mi:Cupertino Icon=Creditcard}">
             <ShellContent ContentTemplate="{DataTemplate financeViews:FinanceView}"/>
         </Tab>
     </TabBar>

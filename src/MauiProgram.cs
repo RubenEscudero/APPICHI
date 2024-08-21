@@ -1,4 +1,5 @@
-﻿using MauiIcons.Cupertino;
+﻿using CommunityToolkit.Maui.Core;
+using MauiIcons.Cupertino;
 using MauiIcons.FontAwesome;
 using Microsoft.Extensions.Logging;
 
@@ -13,6 +14,7 @@ namespace APPICHI
                 .UseMauiApp<App>()
                 .UseFontAwesomeMauiIcons()
                 .UseCupertinoMauiIcons()
+                .UseMauiCommunityToolkitCore()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

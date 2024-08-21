@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="APPICHI.Views.Mobility.MobilityView"
              Title="Mobility">
     <ScrollView>
         <Grid BackgroundColor="Black">
             <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="200"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -23,25 +25,41 @@
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"/>
             <Label Grid.Row="1"
-                Grid.Column="0"
                 Grid.ColumnSpan="2"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                x:Name="ErrorMessage" />
-            <Entry Grid.Row="2" 
+                HorizontalTextAlignment="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{mi:Cupertino Icon=TramFill}" TextColor="White" FontSize="Medium"/>
+                        <Span Text="  Transportes de Zaragoza  " TextColor="White"/>
+                        <Span Text="{mi:Cupertino Icon=TramFill}" TextColor="White" FontSize="Medium"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Text="Introduce el número de la parada &#10; para ver los tiempos de llegada."
+                HorizontalTextAlignment="Center"
+                TextColor="White"/>
+            <Entry Grid.Row="3" 
                 Grid.Column="0"
                 x:Name="PostNumber" 
                 Text=""
-                HorizontalOptions="Center"
+                HorizontalOptions="End"
                 VerticalOptions="Center"
                 TextColor="White"
                 Placeholder="Número de poste" />
-            <Button Grid.Row="2"  
+            <Button Grid.Row="3"  
                 Grid.Column="1"
                 Text="Buscar"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="GoToZgzTimeResultView"/>
+            <Label Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Text="---Futuro desarrollo: listado de postes y buscador de líneas de autobús---"
+                HorizontalTextAlignment="Center"
+                TextColor="Black"
+                VerticalTextAlignment="Center"/>
         </Grid>
     </ScrollView>
 </ContentPage>
