@@ -6,23 +6,22 @@
     <ScrollView>
         <Grid BackgroundColor="Black">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition />
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
                 Text="APPICHI" 
                 TextColor="White"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"/>
-            <Label Grid.Row="1"
-                BackgroundColor="DimGrey"
-                TextColor="White"
-                Text="Botones de hogar"
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center" />
+            <Label Grid.Row="0"/>
         </Grid>
     </ScrollView>
 </ContentPage>

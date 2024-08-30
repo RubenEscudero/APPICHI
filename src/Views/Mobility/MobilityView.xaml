@@ -15,17 +15,18 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
+                <ColumnDefinition Width="30"/>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Label Grid.Row="0"
                 Grid.Column="0"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 Text="APPICHI" 
                 TextColor="White"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"/>
             <Label Grid.Row="1"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 HorizontalTextAlignment="Center">
                 <Label.FormattedText>
                     <FormattedString>
@@ -36,7 +37,7 @@
                 </Label.FormattedText>
             </Label>
             <Label Grid.Row="2"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 Text="Introduce el número de la parada &#10; para ver los tiempos de llegada."
                 HorizontalTextAlignment="Center"
                 TextColor="White"/>
@@ -49,13 +50,13 @@
                 TextColor="White"
                 Placeholder="Número de poste" />
             <Button Grid.Row="3"  
-                Grid.Column="1"
+                Grid.Column="2"
                 Text="Buscar"
-                HorizontalOptions="Center"
+                HorizontalOptions="Start"
                 VerticalOptions="Center"
                 Clicked="GoToZgzTimeResultView"/>
             <Label Grid.Row="4"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 Text="---Futuro desarrollo: listado de postes y buscador de líneas de autobús---"
                 HorizontalTextAlignment="Center"
                 TextColor="Black"
