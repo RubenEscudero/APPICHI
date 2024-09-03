@@ -70,8 +70,10 @@
 		<PackageReference Include="AathifMahir.Maui.MauiIcons.Cupertino" Version="3.0.0" />
 		<PackageReference Include="AathifMahir.Maui.MauiIcons.FontAwesome" Version="3.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="9.0.3" />
-		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.80" />
-		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.80" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.82" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.82" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
@@ -107,6 +109,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Models\Finance\" />
 	  <Folder Include="ViewModels\Mobility\" />
 	</ItemGroup>
 

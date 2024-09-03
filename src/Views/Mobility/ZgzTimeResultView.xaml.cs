@@ -1,5 +1,5 @@
 using APPICHI.Clients;
-using APPICHI.Models;
+using APPICHI.Models.Mobility;
 using Newtonsoft.Json;
 
 namespace APPICHI.Views.Mobility;

@@ -1,5 +1,5 @@
 using APPICHI.Clients;
-using APPICHI.Models;
+using APPICHI.Models.Mobility;
 using System.Text.Json;
 using CommunityToolkit.Maui.Core.Platform;
 
@@ -12,6 +12,11 @@ public partial class MobilityView : ContentPage
 		InitializeComponent();
 	}
 
+	/// <summary>
+	/// Llamada a la API del ayuntamiento para obtener los datos de tiempo de espera
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="args"></param>
 	async void GoToZgzTimeResultView(object sender, EventArgs args)
 	{
         await PostNumber.HideKeyboardAsync();
