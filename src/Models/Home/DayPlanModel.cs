@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 
 namespace APPICHI.Models.Home
 {
-    class DayPlan
+    [Table("DayPlanModel")]
+    public class DayPlanModel
     {
         [PrimaryKey, AutoIncrement]
         public int DayPlanId { get; set; }
         [Unique]
         public DateTime day { get; set; }
-        public List<Food>? foods { get; set; }
+        public List<FoodModel>? foods { get; set; }
+        [MaxLength(250)]
         public string? notes { get; set; }
 
     }
