@@ -20,6 +20,6 @@ namespace APPICHI.Models.Home
         [MaxLength(250)]
         public string? Dessert { get; set; }
         public int DayPlanId { get; set; }
-        public DayPlanModel DayPlan { get; set; }
+        //public DayPlanModel DayPlan { get; set; }
     }
 }

@@ -11,13 +11,13 @@ public partial class HomeView : ContentPage
 
 	public async void InsertDayPlanTest(object sender, EventArgs e)
 	{
-		await App.DayPlanRepo.AddNewDayPlan();
+		await App.FoodRepo.AddNewFood();
         await Application.Current.MainPage.DisplayAlert("Resultado", App.FoodRepo.StatusMessage, "OK");
     }
 
 	public async void GetDayPlanTest(object sender, EventArgs e)
 	{
-		List<DayPlanModel> dayPlanModels = await App.DayPlanRepo.GetAllDayPlan();
-        await Application.Current.MainPage.DisplayAlert("Resultado", dayPlanModels.ToString(), "OK");
+		List<FoodModel> foodModels = await App.FoodRepo.GetAllFood();
+        await Application.Current.MainPage.DisplayAlert("Resultado", foodModels.ToString(), "OK");
     }
 }
