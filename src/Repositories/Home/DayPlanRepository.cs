@@ -39,6 +39,7 @@ namespace APPICHI.Repositories.Home
 
                 //TODO
                 //Add validations
+                //Validar que no existe ya hoy un día planificado
 
                 result = await conn.InsertAsync(new DayPlanModel
                 {

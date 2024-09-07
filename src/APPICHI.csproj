@@ -85,6 +85,9 @@
 	  <MauiXaml Update="Views\Finance\FinanceView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Home\CalendarView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Home\HomeView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

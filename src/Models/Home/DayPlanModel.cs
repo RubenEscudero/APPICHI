@@ -14,6 +14,7 @@ namespace APPICHI.Models.Home
         public int DayPlanId { get; set; }
         [Unique]
         public DateTime day { get; set; }
+        [Ignore]
         public List<FoodModel>? foods { get; set; }
         [MaxLength(250)]
         public string? notes { get; set; }

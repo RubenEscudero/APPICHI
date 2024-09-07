@@ -42,7 +42,7 @@ namespace APPICHI.Repositories.Home
                 //Add validations
 
                 result = await conn.InsertAsync(new FoodModel { IsMeal = true, FirstDish = "PRIMER PLATO", SecondDish = "SEGUNDO PLATO",
-                    Dessert = "POSTRE" });
+                    Dessert = "POSTRE", DayPlanId = 1 });
 
                 StatusMessage = string.Format("{0} record(s) added [Name: {1})", result, "PRIMER PLATO");
             }

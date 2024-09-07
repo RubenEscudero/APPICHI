@@ -23,17 +23,11 @@
                 VerticalTextAlignment="Center"/>
             <Label Grid.Row="0"/>
             <Button Grid.Row="1"  
-                Grid.Column="2"
-                Text="Insertar Day plan prueba"
-                HorizontalOptions="Start"
+                Grid.ColumnSpan="2"
+                Text="Ver calendario"
+                HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Clicked="InsertDayPlanTest"/>
-            <Button Grid.Row="3"  
-                Grid.Column="2"
-                Text="Obtener Day plan prueba"
-                HorizontalOptions="Start"
-                VerticalOptions="Center"
-                Clicked="GetDayPlanTest"/>
+                Clicked="ViewCalendar"/>
         </Grid>
     </ScrollView>
 </ContentPage>

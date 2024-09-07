@@ -9,15 +9,8 @@ public partial class HomeView : ContentPage
 		InitializeComponent();
 	}
 
-	public async void InsertDayPlanTest(object sender, EventArgs e)
+	public async void ViewCalendar(object sender, EventArgs e)
 	{
-		await App.FoodRepo.AddNewFood();
-        await Application.Current.MainPage.DisplayAlert("Resultado", App.FoodRepo.StatusMessage, "OK");
-    }
-
-	public async void GetDayPlanTest(object sender, EventArgs e)
-	{
-		List<FoodModel> foodModels = await App.FoodRepo.GetAllFood();
-        await Application.Current.MainPage.DisplayAlert("Resultado", foodModels.ToString(), "OK");
+        await Navigation.PushAsync(new CalendarView());
     }
 }
