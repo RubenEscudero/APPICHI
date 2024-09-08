@@ -6,6 +6,7 @@ Aplicación creada en .NET MAUI para mi uso personal
 - CommunityToolkit.Maui.Core
 - sqlite-net-pcl
 - Microsoft.EntityFrameworkCore.Sqlite
+- Plugin.Maui.Calendar
 
 # Funcionalidades
 ## Transporte

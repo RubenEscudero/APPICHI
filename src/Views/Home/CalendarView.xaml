@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
              x:Class="APPICHI.Views.Home.CalendarView"
              Title="CalendarView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <cal:Calendar Events="{Binding Events}" EventsScrollViewVisible="True" SelectedDayBackgroundColor="Purple"
+                  TodayOutlineColor="Purple" EventIndicatorColor="Purple">
+        <cal:Calendar.EventTemplate>
+            <DataTemplate>
+                <VerticalStackLayout>
+                    <Label Text="{Binding Name}" FontSize="25" FontAttributes="Bold"/>
+                    <Label Text="{Binding Description}"/>
+                </VerticalStackLayout>
+            </DataTemplate>
+        </cal:Calendar.EventTemplate>
+    </cal:Calendar>
 </ContentPage>
