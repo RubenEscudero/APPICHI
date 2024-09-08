@@ -5,18 +5,29 @@
              x:Class="APPICHI.Views.Home.CalendarView"
              Title="CalendarView">
     <cal:Calendar Events="{Binding Events}" BackgroundColor="black"
-                  EventsScrollViewVisible="True" SelectedDayBackgroundColor="Purple"
+                  EventsScrollViewVisible="True" SelectedDayTextColor="White"
                   TodayOutlineColor="Purple" EventIndicatorColor="Purple" ShowYearPicker="False"
                   MonthLabelColor="Purple" OtherMonthDayIsVisible="False" DaysTitleColor="White"
-                  DaysTitleWeekendColor="White" WeekendDayColor="White" DeselectedDayTextColor="White"
-                  
-                  ArrowsBackgroundColor="Black" ArrowsColor="Purple" ArrowsFontSize="30"> 
+                  DaysTitleWeekendColor="WhiteSmoke" WeekendDayColor="White" DeselectedDayTextColor="White"
+                  SelectedDateColor="White" SelectedDayBackgroundColor="MediumPurple"
+                  EventIndicatorTextColor="White" TodayTextColor="White" EventIndicatorSelectedColor="Purple"
+                  ArrowsBackgroundColor="Black" ArrowsColor="Purple" ArrowsFontSize="30"
+                  DaysTitleLabelFirstUpperRestLower="True"> 
         <cal:Calendar.EventTemplate>
             <DataTemplate>
-                <VerticalStackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
                     <Label Text="{Binding Name}" FontSize="25" FontAttributes="Bold"/>
                     <Label Text="{Binding Description}"/>
-                </VerticalStackLayout>
+                </Grid>
             </DataTemplate>
         </cal:Calendar.EventTemplate>
     </cal:Calendar>

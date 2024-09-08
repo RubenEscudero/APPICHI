@@ -11,6 +11,8 @@ public partial class HomeView : ContentPage
 
 	public async void ViewCalendar(object sender, EventArgs e)
 	{
-        await Navigation.PushAsync(new CalendarView());
+		//Obtener dayplan con comidas y pasarlo al calendario
+		List<DayPlanModel> dayPlanModels = await App.DayPlanRepo.GetAllDayPlan();
+        await Navigation.PushAsync(new CalendarView(dayPlanModels));
     }
 }
