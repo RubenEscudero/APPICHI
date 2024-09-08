@@ -4,8 +4,13 @@
              xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
              x:Class="APPICHI.Views.Home.CalendarView"
              Title="CalendarView">
-    <cal:Calendar Events="{Binding Events}" EventsScrollViewVisible="True" SelectedDayBackgroundColor="Purple"
-                  TodayOutlineColor="Purple" EventIndicatorColor="Purple">
+    <cal:Calendar Events="{Binding Events}" BackgroundColor="black"
+                  EventsScrollViewVisible="True" SelectedDayBackgroundColor="Purple"
+                  TodayOutlineColor="Purple" EventIndicatorColor="Purple" ShowYearPicker="False"
+                  MonthLabelColor="Purple" OtherMonthDayIsVisible="False" DaysTitleColor="White"
+                  DaysTitleWeekendColor="White" WeekendDayColor="White" DeselectedDayTextColor="White"
+                  
+                  ArrowsBackgroundColor="Black" ArrowsColor="Purple" ArrowsFontSize="30"> 
         <cal:Calendar.EventTemplate>
             <DataTemplate>
                 <VerticalStackLayout>
