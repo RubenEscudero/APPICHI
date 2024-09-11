@@ -52,6 +52,21 @@ namespace APPICHI.Repositories.Home
             }
         }
 
+        public async Task<List<FoodModel>> GetFoodModelsByDayPlan(int dayPlanId)
+        {
+            try
+            {
+                await Init();
+                return await conn.Table<FoodModel>().Where(i => i.DayPlanId == dayPlanId).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return new List<FoodModel>();
+        }
+
         public async Task<List<FoodModel>> GetAllFood()
         {
             try

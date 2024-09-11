@@ -11,19 +11,13 @@ public partial class CalendarView : ContentPage
 	{
 		InitializeComponent();
 
-        Events = new EventCollection
-        {
-            [DateTime.Now] = new List<EventModel>
-            {
-                new EventModel { Name = "Cool event1", Description = "This is Cool event1's description!" },
-                new EventModel { Name = "Cool event2", Description = "This is Cool event2's description!" }
-            }
-        };
+        Events = new EventCollection();
 
         foreach (DayPlanModel dayPlanModel in dayPlanModels )
         {
             List<EventModel> eventModels = new List<EventModel>();
-            if (!dayPlanModel.foods.Any())
+            
+            if (dayPlanModel.foods is not null)
             {
                 foreach (FoodModel foodModel in dayPlanModel.foods)
                 {
@@ -31,7 +25,15 @@ public partial class CalendarView : ContentPage
                 }
             }
 
-            Events.Add(dayPlanModel.day, eventModels);
+            try
+            {
+                Events.Add(dayPlanModel.day, eventModels);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
         }
 
         BindingContext = this;

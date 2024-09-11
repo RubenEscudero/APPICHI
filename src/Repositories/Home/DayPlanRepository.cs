@@ -60,7 +60,20 @@ namespace APPICHI.Repositories.Home
             try
             {
                 await Init();
-                return await conn.Table<DayPlanModel>().ToListAsync();
+                List<DayPlanModel> dayPlanModels =  await conn.Table<DayPlanModel>().ToListAsync();
+                
+                for (int i = 0; i < dayPlanModels.Count; i++)
+                {
+                    List<FoodModel> foodModels = await App.FoodRepo.GetFoodModelsByDayPlan(dayPlanModels[i].DayPlanId);
+
+                    if (foodModels.Count > 0)
+                    {
+                        dayPlanModels[i].foods = foodModels;
+                    }
+                }
+
+                return dayPlanModels;
+                
             }
             catch (Exception ex)
             {
