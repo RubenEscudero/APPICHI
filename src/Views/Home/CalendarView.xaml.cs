@@ -21,7 +21,9 @@ public partial class CalendarView : ContentPage
             {
                 foreach (FoodModel foodModel in dayPlanModel.foods)
                 {
-                    eventModels.Add(new EventModel { Name = foodModel.FirstDish, Description = foodModel.SecondDish });
+                    string isMealText = (foodModel.IsMeal) ? "Comida" : "Cena";
+                    eventModels.Add(new EventModel { FirstDish = foodModel.FirstDish, SecondDish = foodModel.SecondDish,
+                    Dessert = foodModel.Dessert, IsMeal = isMealText});
                 }
             }
 
@@ -42,6 +44,8 @@ public partial class CalendarView : ContentPage
 
 internal class EventModel
 {
-    public string Name { get; set; }
-    public string Description { get; set; }
+    public string FirstDish { get; set; }
+    public string SecondDish { get; set; }
+    public string Dessert { get; set; }
+    public string IsMeal { get; set; }
 }

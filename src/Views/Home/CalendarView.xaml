@@ -25,8 +25,18 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <Label Text="{Binding Name}" FontSize="25" FontAttributes="Bold"/>
-                    <Label Text="{Binding Description}"/>
+                    <Label Grid.Column="0"
+                        Grid.Row="0"
+                        Text="{Binding IsMeal}"/>
+                    <Label Grid.Column="0"
+                        Grid.Row="1"
+                        Text="{Binding FirstDish}"/>
+                    <Label Grid.Column="0"
+                        Grid.Row="2"   
+                        Text="{Binding SecondDish}"/>
+                    <Label Grid.Column="0"
+                        Grid.Row="3"   
+                        Text="{Binding Dessert}"/>
                 </Grid>
             </DataTemplate>
         </cal:Calendar.EventTemplate>
