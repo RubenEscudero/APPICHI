@@ -117,7 +117,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Models\Finance\" />
-	  <Folder Include="ViewModels\Mobility\" />
 	</ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
 ﻿using APPICHI.Repositories.Home;
+using System.Globalization;
 
 namespace APPICHI
 {
@@ -9,6 +10,11 @@ namespace APPICHI
         public App(FoodRepository foodRepo, DayPlanRepository dayPlanRepo)
         {
             InitializeComponent();
+
+            var culture = new CultureInfo("es-ES");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+            culture.DateTimeFormat.FirstDayOfWeek = DayOfWeek.Monday;
 
             MainPage = new AppShell();
 
