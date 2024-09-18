@@ -7,8 +7,8 @@
         <Grid BackgroundColor="Black">
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -28,6 +28,12 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="ViewCalendar"/>
+            <Label Grid.Row="3"
+                Grid.Column="0"
+                Text="{Binding CurrentDate}" 
+                TextColor="White"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"/>
         </Grid>
     </ScrollView>
 </ContentPage>
