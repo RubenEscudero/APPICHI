@@ -60,7 +60,7 @@ namespace APPICHI.Repositories.Home
             try
             {
                 await Init();
-                List<DayPlanModel> dayPlanModels =  await conn.Table<DayPlanModel>().ToListAsync();
+                List<DayPlanModel> dayPlanModels = await conn.Table<DayPlanModel>().ToListAsync();
                 
                 for (int i = 0; i < dayPlanModels.Count; i++)
                 {
@@ -82,5 +82,31 @@ namespace APPICHI.Repositories.Home
 
             return new List<DayPlanModel>();
         }
+
+        public async Task<DayPlanModel> GetTodayDayPlan()
+        {
+            try
+            {
+                await Init();
+                DayPlanModel dayPlanModel = await conn.Table<DayPlanModel>().Where(p => p.day == DateTime.Today).FirstOrDefaultAsync();
+
+                List<FoodModel> foodModels = await App.FoodRepo.GetFoodModelsByDayPlan(dayPlanModel.DayPlanId);
+
+                if (foodModels.Count > 0)
+                {
+                    dayPlanModel.foods = foodModels;
+                }
+
+                return dayPlanModel;
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return new DayPlanModel();
+        }
     }
+
+    
 }

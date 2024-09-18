@@ -22,7 +22,7 @@ public partial class CalendarView : ContentPage
             {
                 foreach (FoodModel foodModel in dayPlanModel.foods)
                 {
-                    string isMealText = (foodModel.IsMeal) ? "Comida" : "Cena";
+                    string isMealText = (foodModel.IsMeal) ? "COMIDA" : "CENA";
                     eventModels.Add(new EventModel { FirstDish = foodModel.FirstDish, SecondDish = foodModel.SecondDish,
                     Dessert = foodModel.Dessert, IsMeal = isMealText});
                 }
@@ -34,7 +34,7 @@ public partial class CalendarView : ContentPage
             }
             catch (Exception ex)
             {
-
+                DisplayAlert("Aviso", "Error al cargar las comidas.", "OK");
             }
             
         }

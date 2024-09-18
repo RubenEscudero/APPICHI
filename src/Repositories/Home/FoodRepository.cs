@@ -57,7 +57,7 @@ namespace APPICHI.Repositories.Home
             try
             {
                 await Init();
-                return await conn.Table<FoodModel>().Where(i => i.DayPlanId == dayPlanId).ToListAsync();
+                return await conn.Table<FoodModel>().Where(i => i.DayPlanId == dayPlanId).OrderByDescending(m => m.IsMeal).ToListAsync();
             }
             catch (Exception ex)
             {

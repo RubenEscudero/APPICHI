@@ -7,7 +7,11 @@ public partial class HomeView : ContentPage
 	public HomeView()
 	{
 		InitializeComponent();
-	}
+
+		DayPlanModel dayPlanModel = App.DayPlanRepo.GetTodayDayPlan().GetAwaiter().GetResult();
+
+        BindingContext = this;
+    }
 
 	public async void ViewCalendar(object sender, EventArgs e)
 	{

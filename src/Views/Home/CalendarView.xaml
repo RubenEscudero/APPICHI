@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:cal="clr-namespace:Plugin.Maui.Calendar.Controls;assembly=Plugin.Maui.Calendar"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="APPICHI.Views.Home.CalendarView"
              Title="CalendarView">
     <cal:Calendar Events="{Binding Events}" BackgroundColor="black"
@@ -12,7 +13,7 @@
                   SelectedDateColor="White" SelectedDayBackgroundColor="MediumPurple"
                   EventIndicatorTextColor="White" TodayTextColor="White" EventIndicatorSelectedColor="Purple"
                   ArrowsBackgroundColor="Black" ArrowsColor="Purple" ArrowsFontSize="30"
-                  DaysTitleLabelFirstUpperRestLower="True"> 
+                  DaysTitleLabelFirstUpperRestLower="True">
         <cal:Calendar.EventTemplate>
             <DataTemplate>
                 <Grid>
@@ -20,10 +21,10 @@
                         <RowDefinition />
                         <RowDefinition />
                         <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="35"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="300"/>
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
                     <Label Grid.Column="0"
