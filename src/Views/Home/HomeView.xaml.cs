@@ -9,8 +9,6 @@ public partial class HomeView : ContentPage
 	{
 		InitializeComponent();
 
-		//DayPlanModel dayPlanModel = App.DayPlanRepo.GetTodayDayPlan().GetAwaiter().GetResult();
-
 		BindingContext = new HomeViewModel();
     }
 

@@ -27,12 +27,13 @@
                 VerticalTextAlignment="Center"/>
             <Label Grid.Row="1"
                 Grid.ColumnSpan="3"
-                HorizontalTextAlignment="Center">
+                HorizontalTextAlignment="Center"
+                TextColor="White">
                 <Label.FormattedText>
                     <FormattedString>
-                        <Span Text="{mi:Cupertino Icon=TramFill}" TextColor="White" FontSize="Medium"/>
-                        <Span Text="  Transportes de Zaragoza  " TextColor="White"/>
-                        <Span Text="{mi:Cupertino Icon=TramFill}" TextColor="White" FontSize="Medium"/>
+                        <Span Text="{mi:Cupertino Icon=TramFill}" FontSize="Medium"/>
+                        <Span Text="  Transportes de Zaragoza  "/>
+                        <Span Text="{mi:Cupertino Icon=TramFill}" FontSize="Medium"/>
                     </FormattedString>
                 </Label.FormattedText>
             </Label>

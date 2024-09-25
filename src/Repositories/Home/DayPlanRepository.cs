@@ -14,15 +14,25 @@ namespace APPICHI.Repositories.Home
 
         public string StatusMessage { get; set; }
 
-        private SQLiteAsyncConnection conn;
+        private SQLiteAsyncConnection connAsync;
+        private SQLiteConnection conn;
 
-        private async Task Init()
+        private async Task InitAsync()
+        {
+            if (connAsync != null)
+                return;
+
+            connAsync = new SQLiteAsyncConnection(_dbPath);
+            await connAsync.CreateTableAsync<DayPlanModel>();
+        }
+
+        private void Init()
         {
             if (conn != null)
                 return;
 
-            conn = new SQLiteAsyncConnection(_dbPath);
-            await conn.CreateTableAsync<DayPlanModel>();
+            conn = new SQLiteConnection(_dbPath);
+            conn.CreateTable<DayPlanModel>();
         }
 
         public DayPlanRepository(string dbPath)
@@ -35,13 +45,13 @@ namespace APPICHI.Repositories.Home
             int result = 0;
             try
             {
-                await Init();
+                await InitAsync();
 
                 //TODO
                 //Add validations
                 //Validar que no existe ya hoy un día planificado
 
-                result = await conn.InsertAsync(new DayPlanModel
+                result = await connAsync.InsertAsync(new DayPlanModel
                 {
                     day = DateTime.Now,
                     notes = "Nota"
@@ -59,12 +69,12 @@ namespace APPICHI.Repositories.Home
         {
             try
             {
-                await Init();
-                List<DayPlanModel> dayPlanModels = await conn.Table<DayPlanModel>().ToListAsync();
+                await InitAsync();
+                List<DayPlanModel> dayPlanModels = await connAsync.Table<DayPlanModel>().ToListAsync();
                 
                 for (int i = 0; i < dayPlanModels.Count; i++)
                 {
-                    List<FoodModel> foodModels = await App.FoodRepo.GetFoodModelsByDayPlan(dayPlanModels[i].DayPlanId);
+                    List<FoodModel> foodModels = await App.FoodRepo.GetFoodModelsByDayPlanAsync(dayPlanModels[i].DayPlanId);
 
                     if (foodModels.Count > 0)
                     {
@@ -83,18 +93,45 @@ namespace APPICHI.Repositories.Home
             return new List<DayPlanModel>();
         }
 
-        public async Task<DayPlanModel> GetTodayDayPlan()
+        public async Task<DayPlanModel> GetTodayDayPlanAsync()
         {
             try
             {
-                await Init();
-                DayPlanModel dayPlanModel = await conn.Table<DayPlanModel>().Where(p => p.day == DateTime.Today).FirstOrDefaultAsync();
+                await InitAsync();
+                DayPlanModel dayPlanModel = await connAsync.Table<DayPlanModel>().Where(p => p.day == DateTime.Today).FirstOrDefaultAsync();
 
-                List<FoodModel> foodModels = await App.FoodRepo.GetFoodModelsByDayPlan(dayPlanModel.DayPlanId);
+                List<FoodModel> foodModels = await App.FoodRepo.GetFoodModelsByDayPlanAsync(dayPlanModel.DayPlanId);
 
                 if (foodModels.Count > 0)
                 {
                     dayPlanModel.foods = foodModels;
+                }
+
+                return dayPlanModel;
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return new DayPlanModel();
+        }
+
+        public DayPlanModel GetTodayDayPlan()
+        {
+            try
+            {
+                Init();
+                DayPlanModel dayPlanModel = conn.Table<DayPlanModel>().Where(p => p.day == DateTime.Today).FirstOrDefault();
+
+                if (dayPlanModel != null)
+                {
+                    List<FoodModel> foodModels = App.FoodRepo.GetFoodModelsByDayPlan(dayPlanModel.DayPlanId);
+
+                    if (foodModels.Count > 0)
+                    {
+                        dayPlanModel.foods = foodModels;
+                    }
                 }
 
                 return dayPlanModel;

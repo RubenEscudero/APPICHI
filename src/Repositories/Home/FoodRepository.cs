@@ -15,15 +15,25 @@ namespace APPICHI.Repositories.Home
 
         public string StatusMessage { get; set; }
 
-        private SQLiteAsyncConnection conn;
+        private SQLiteAsyncConnection connAsync;
+        private SQLiteConnection conn;
 
-        private async Task Init()
+        private async Task InitAsync()
+        {
+            if (connAsync != null)
+                return;
+
+            connAsync = new SQLiteAsyncConnection(_dbPath);
+            await connAsync.CreateTableAsync<FoodModel>();
+        }
+
+        private void Init()
         {
             if (conn != null)
                 return;
 
-            conn = new SQLiteAsyncConnection(_dbPath);
-            await conn.CreateTableAsync<FoodModel>();
+            conn = new SQLiteConnection(_dbPath);
+            conn.CreateTable<FoodModel>();
         }
 
         public FoodRepository(string dbPath)
@@ -36,12 +46,12 @@ namespace APPICHI.Repositories.Home
             int result = 0;
             try
             {
-                await Init();
+                await InitAsync();
 
                 //TODO
                 //Add validations
 
-                result = await conn.InsertAsync(new FoodModel { IsMeal = true, FirstDish = "PRIMER PLATO", SecondDish = "SEGUNDO PLATO",
+                result = await connAsync.InsertAsync(new FoodModel { IsMeal = true, FirstDish = "PRIMER PLATO", SecondDish = "SEGUNDO PLATO",
                     Dessert = "POSTRE", DayPlanId = 1 });
 
                 StatusMessage = string.Format("{0} record(s) added [Name: {1})", result, "PRIMER PLATO");
@@ -52,12 +62,27 @@ namespace APPICHI.Repositories.Home
             }
         }
 
-        public async Task<List<FoodModel>> GetFoodModelsByDayPlan(int dayPlanId)
+        public async Task<List<FoodModel>> GetFoodModelsByDayPlanAsync(int dayPlanId)
         {
             try
             {
-                await Init();
-                return await conn.Table<FoodModel>().Where(i => i.DayPlanId == dayPlanId).OrderByDescending(m => m.IsMeal).ToListAsync();
+                await InitAsync();
+                return await connAsync.Table<FoodModel>().Where(i => i.DayPlanId == dayPlanId).OrderByDescending(m => m.IsMeal).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return new List<FoodModel>();
+        }
+
+        public List<FoodModel> GetFoodModelsByDayPlan(int dayPlanId)
+        {
+            try
+            {
+                Init();
+                return conn.Table<FoodModel>().Where(i => i.DayPlanId == dayPlanId).OrderByDescending(m => m.IsMeal).ToList();
             }
             catch (Exception ex)
             {
@@ -71,8 +96,8 @@ namespace APPICHI.Repositories.Home
         {
             try
             {
-                await Init();
-                return await conn.Table<FoodModel>().ToListAsync();
+                await InitAsync();
+                return await connAsync.Table<FoodModel>().ToListAsync();
             }
             catch (Exception ex)
             {

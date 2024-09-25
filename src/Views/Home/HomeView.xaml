@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
              x:Class="APPICHI.Views.Home.HomeView"
              Title="Home">
     <ScrollView>
@@ -9,6 +10,12 @@
                 <RowDefinition Height="80"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -21,19 +28,92 @@
                 TextColor="White"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"/>
-            <Label Grid.Row="0"/>
             <Button Grid.Row="1"  
                 Grid.ColumnSpan="2"
                 Text="Ver calendario"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Clicked="ViewCalendar"/>
-            <Label Grid.Row="3"
+            <Label Grid.Row="2"
                 Grid.Column="0"
                 Text="{Binding CurrentDate}" 
                 TextColor="White"
-                HorizontalTextAlignment="Center"
-                VerticalTextAlignment="Center"/>
+                HorizontalTextAlignment="Start"
+                Margin="10, 0, 0, 0"/>
+            <Label Grid.Row="3"
+                Grid.Column="0"
+                TextColor="White"
+                HorizontalTextAlignment="Start"
+                Margin="10, 0, 0, 0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="COMIDA "/>
+                        <Span Text="{mi:Cupertino Icon=SunMin}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Grid.Column="0"
+                TextColor="White"
+                HorizontalTextAlignment="Start"
+                Margin="10, 0, 0, 0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding CurrentDayPlan.foods[0].FirstDish}" />
+                        <Span Text=", "/>
+                        <Span Text="{Binding CurrentDayPlan.foods[0].SecondDish}" />
+                        <Span Text=", "/>
+                        <Span Text="{Binding CurrentDayPlan.foods[0].Dessert}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Grid.Row="5"
+                Grid.Column="0"
+                TextColor="White"
+                HorizontalTextAlignment="Start"
+                Margin="10, 0, 0, 0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="CENA "/>
+                        <Span Text="{mi:Cupertino Icon=MoonZzz}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Grid.Row="6"
+                Grid.ColumnSpan="2"
+                Grid.Column="0"
+                TextColor="White"
+                HorizontalTextAlignment="Start"
+                Margin="10, 0, 0, 0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding CurrentDayPlan.foods[1].FirstDish}" />
+                        <Span Text=", "/>
+                        <Span Text="{Binding CurrentDayPlan.foods[1].SecondDish}" />
+                        <Span Text=", "/>
+                        <Span Text="{Binding CurrentDayPlan.foods[1].Dessert}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Grid.Row="7"
+                Grid.Column="0"
+                TextColor="White"
+                HorizontalTextAlignment="Start"
+                Margin="10, 0, 0, 0">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="NOTAS "/>
+                        <Span Text="{mi:Cupertino Icon=Pencil}" FontSize="Small"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Grid.Row="8"
+                Grid.Column="0"
+                Text="{Binding CurrentDayPlan.notes}"
+                TextColor="White"
+                HorizontalTextAlignment="Start"
+                Margin="10, 0, 0, 0"/>
         </Grid>
     </ScrollView>
 </ContentPage>
