@@ -18,4 +18,9 @@ public partial class HomeView : ContentPage
 		List<DayPlanModel> dayPlanModels = await App.DayPlanRepo.GetAllDayPlan();
         await Navigation.PushAsync(new CalendarView(dayPlanModels));
     }
+
+	public async void GoToEditDayPlan(object sender, EventArgs e)
+	{
+		await Navigation.PushAsync(new EditDayPlanView());
+	}
 }

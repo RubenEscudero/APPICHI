@@ -132,9 +132,11 @@ namespace APPICHI.Repositories.Home
                     {
                         dayPlanModel.foods = foodModels;
                     }
+
+                    return dayPlanModel;
                 }
 
-                return dayPlanModel;
+                return new DayPlanModel();
             }
             catch (Exception ex)
             {

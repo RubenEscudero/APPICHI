@@ -16,6 +16,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="20"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -114,6 +115,11 @@
                 TextColor="White"
                 HorizontalTextAlignment="Start"
                 Margin="10, 0, 0, 0"/>
+            <Button Grid.Row="9"
+                Grid.Column="1"
+                MaximumWidthRequest="300"
+                Text="Editar plan del día"
+                Clicked="GoToEditDayPlan"/>
         </Grid>
     </ScrollView>
 </ContentPage>
